@@ -2,24 +2,24 @@
 
 struct Dompet {
     char nama[100];
-    long long saldo;
+    int saldo;
 };
 
-void topUp(struct Dompet *dompet, long long nominal) {
+void topUp(struct Dompet *dompet, int nominal) {
     dompet->saldo += nominal;
 
-    printf("Top up %lld berhasil, saldo = %lld\n",
+    printf("Top up %d berhasil, saldo = %d\n",
            nominal, dompet->saldo);
 }
 
-void bayar(struct Dompet *dompet, long long nominal) {
+void bayar(struct Dompet *dompet, int nominal) {
     if (dompet->saldo >= nominal) {
         dompet->saldo -= nominal;
 
-        printf("Bayar %lld berhasil, saldo = %lld\n",
+        printf("Bayar %d berhasil, saldo = %d\n",
                nominal, dompet->saldo);
     } else {
-        printf("Bayar %lld gagal, saldo tidak cukup\n",
+        printf("Bayar %d gagal, saldo tidak cukup\n",
                nominal);
     }
 }
@@ -28,14 +28,14 @@ int main() {
     struct Dompet dompet;
     int N;
 
-    scanf("%s %lld", dompet.nama, &dompet.saldo);
+    scanf("%s %d", dompet.nama, &dompet.saldo);
     scanf("%d", &N);
 
     for (int i = 0; i < N; i++) {
         char jenis;
-        long long nominal;
+        int nominal;
 
-        scanf(" %c %lld", &jenis, &nominal);
+        scanf(" %c %d", &jenis, &nominal);
 
         if (jenis == 'T') {
             topUp(&dompet, nominal);
@@ -44,7 +44,7 @@ int main() {
         }
     }
 
-    printf("Saldo akhir %s = %lld\n",
+    printf("Saldo akhir %s = %d\n",
            dompet.nama, dompet.saldo);
 
     return 0;

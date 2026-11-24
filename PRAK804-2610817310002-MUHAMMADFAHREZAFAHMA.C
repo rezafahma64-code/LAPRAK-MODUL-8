@@ -27,7 +27,7 @@ int main() {
         }
     }
 
-    printf("Peserta dengan skor tertinggi adalah %s\n",
+    printf("Peserta dengan skor tertinggi adalah %s ",
            peserta[juara].nama);
     printf("dengan skor %d\n", peserta[juara].skor);
 
